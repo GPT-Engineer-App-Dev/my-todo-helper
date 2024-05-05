@@ -5,7 +5,7 @@ import Notes from "./pages/Notes.jsx";
 import Calendar from "./pages/Calendar.jsx";
 
 const Navbar = () => (
-  <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1.5rem" bg="blue.500" color="white">
+  <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding="1.5rem" bg="blue.800" color="white">
     <Box>
       <Link href="/" padding="1rem">Home</Link>
       <Link href="/about" padding="1rem">About</Link>

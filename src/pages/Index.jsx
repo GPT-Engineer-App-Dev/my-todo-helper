@@ -38,6 +38,7 @@ const Index = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && addTask()}
+          focusBorderColor="blue.500"
         />
         <Button onClick={addTask} colorScheme="blue">Add Task</Button>
         <List spacing={3} w="100%">
