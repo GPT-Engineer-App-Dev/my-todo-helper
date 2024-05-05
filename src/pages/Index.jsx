@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, VStack, Input, Button, List, ListItem, ListIcon, IconButton, useToast, Box, Text } from '@chakra-ui/react';
+import { Container, VStack, Input, Button, List, ListItem, ListIcon, IconButton, useToast, Box, Text, Flex } from '@chakra-ui/react';
 import { FaTrash, FaCheckCircle } from 'react-icons/fa';
 
 const Index = () => {
@@ -31,7 +31,7 @@ const Index = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" p={5} minH="100vh" display="flex" flexDirection="column" justifyContent="space-between">
+    <Container centerContent maxW="container.md" p={{ base: 3, md: 5 }} minH="100vh" display="flex" flexDirection="column" justifyContent="space-between">
       <VStack spacing={4} w="100%">
         <Input
           placeholder="Add a new task..."
@@ -42,11 +42,9 @@ const Index = () => {
         <Button onClick={addTask} colorScheme="blue">Add Task</Button>
         <List spacing={3} w="100%">
           {tasks.map(task => (
-            <ListItem key={task.id} d="flex" justifyContent="space-between" alignItems="center">
-              <ListIcon as={task.isCompleted ? FaCheckCircle : FaCheckCircle} color={task.isCompleted ? 'green.500' : 'gray.500'} onClick={() => toggleTaskCompletion(task.id)} cursor="pointer" />
-              <span style={{ textDecoration: task.isCompleted ? 'line-through' : 'none', flexGrow: 1 }}>
-                {task.text}
-              </span>
+            <ListItem key={task.id} d="flex" justifyContent="space-between" alignItems="center" p={3} shadow="sm" borderWidth="1px" borderRadius="lg">
+              <ListIcon as={FaCheckCircle} color={task.isCompleted ? 'green.500' : 'gray.500'} onClick={() => toggleTaskCompletion(task.id)} cursor="pointer" />
+              <Text flex="1" textDecoration={task.isCompleted ? 'line-through' : 'none'}>{task.text}</Text>
               <IconButton aria-label="Delete task" icon={<FaTrash />} onClick={() => deleteTask(task.id)} />
             </ListItem>
           ))}
