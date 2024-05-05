@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, VStack, Input, Button, List, ListItem, ListIcon, IconButton, useToast } from '@chakra-ui/react';
+import { Container, VStack, Input, Button, List, ListItem, ListIcon, IconButton, useToast, Box, Text } from '@chakra-ui/react';
 import { FaTrash, FaCheckCircle } from 'react-icons/fa';
 
 const Index = () => {
@@ -31,7 +31,7 @@ const Index = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" p={5}>
+    <Container centerContent maxW="container.md" p={5} minH="100vh" display="flex" flexDirection="column" justifyContent="space-between">
       <VStack spacing={4} w="100%">
         <Input
           placeholder="Add a new task..."
@@ -52,6 +52,9 @@ const Index = () => {
           ))}
         </List>
       </VStack>
+      <Box as="footer" w="full" p={4} borderTop="1px" borderColor="gray.200">
+        <Text textAlign="center" fontSize="sm">© 2023 Todo App</Text>
+      </Box>
     </Container>
   );
 };
